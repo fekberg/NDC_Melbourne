@@ -1,0 +1,55 @@
+﻿<Window x:Class="Workshop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Workshop"
+        mc:Ignorable="d"
+        Title="NDC Workshop 2020" Height="450" Width="800">
+    <Window.Resources>
+        <local:ColorToBrushConverter x:Key="ColorToBrushConverter"/>
+    </Window.Resources>
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"  />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="350" />
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="Search IMDB" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="Search" Width="200" Margin="0 0 15 0"></TextBox>
+                <Button Width="120" Click="Button_Click">Search</Button>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Grid.Row="1" Header="Results">
+            <ListView x:Name="Movies" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionMode="Single" SelectionChanged="Movies_SelectionChanged">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" Margin="10" Width="300" VerticalAlignment="Stretch">
+                            <TextBlock FontWeight="Bold" Text="{Binding Title}" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                            <TextBlock Text="{Binding Year}" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                            <Image Height="200" Source="{Binding Poster}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </GroupBox>
+
+        <GroupBox Grid.Column="1" Grid.Row="1" Header="Details">
+            <StackPanel x:Name="Details" Orientation="Vertical" Background="{Binding Path=Background, Converter={StaticResource ColorToBrushConverter}}"  Margin="10" VerticalAlignment="Stretch">
+                <TextBlock FontWeight="Bold" Text="{Binding PrettyTitle}" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                <TextBlock FontWeight="Bold" Text="{Binding PrettyGenre}" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                <Image Height="200" Source="{Binding Poster}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Window>
