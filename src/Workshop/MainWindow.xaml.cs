@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Business;
+using System;
+using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
@@ -13,12 +17,33 @@ namespace Workshop
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
+            var client = new ImdbClient();
+
+            var result = new ObservableCollection<Movie>();
+
+            Movies.ItemsSource = result;
+
+            await foreach(var movies in client.FindAllAsync(Search.Text))
+            {
+                foreach(var movie in movies)
+                {
+                    result.Add(movie);
+                }
+            }
         }
 
-        private void Movies_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private async void Movies_SelectionChanged(object sender, 
+            System.Windows.Controls.SelectionChangedEventArgs e)
         {
+            var movie = e.AddedItems[0] as Movie;
+
+            var client = new ImdbClient();
+
+            var result = await client.DetailsAsync(movie.ImdbID);
+
+            Details.DataContext = result;
         }
     }
 
