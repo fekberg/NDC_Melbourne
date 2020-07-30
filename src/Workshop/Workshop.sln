@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Workshop", "Workshop.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "..\Business\Business.csproj", "{7E43936D-C719-4833-8576-325A17477EDF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithMemory", "..\WorkingWithMemory\WorkingWithMemory.csproj", "{EA40B486-F663-4D68-9822-A73C28ACB8A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithPatterns", "..\WorkingWithPatterns\WorkingWithPatterns.csproj", "{81616E8F-254F-4226-A26B-AB03B19ADB65}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{7E43936D-C719-4833-8576-325A17477EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E43936D-C719-4833-8576-325A17477EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E43936D-C719-4833-8576-325A17477EDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA40B486-F663-4D68-9822-A73C28ACB8A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA40B486-F663-4D68-9822-A73C28ACB8A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA40B486-F663-4D68-9822-A73C28ACB8A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA40B486-F663-4D68-9822-A73C28ACB8A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81616E8F-254F-4226-A26B-AB03B19ADB65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81616E8F-254F-4226-A26B-AB03B19ADB65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81616E8F-254F-4226-A26B-AB03B19ADB65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81616E8F-254F-4226-A26B-AB03B19ADB65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

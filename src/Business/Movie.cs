@@ -4,13 +4,24 @@ using System.Linq;
 
 namespace Business
 {
+    public class OMDBEntity
+    {
+        public string Title { get; set; } = string.Empty;
+        public string Genre { get; set; } = string.Empty;
+
+        public void Deconstruct(out string title, out string genre)
+        {
+            title = Title;
+            genre = Genre;
+        }
+    }
 #nullable enable
-    public class Movie
+    public class Movie : OMDBEntity
     {
         public string ImdbID { get; set; } = string.Empty;
-        public string Title { get; set; } = string.Empty;
+        
         public string Year { get; set; } = string.Empty;
-        public string? Genre { get; set; }
+        
         public string Runtime { get; set; } = string.Empty;
         public string Released { get; set; } = string.Empty;
         public string Poster { get; set; } = string.Empty;
@@ -40,7 +51,7 @@ namespace Business
         {
             var x = name.Length;
 
-            return null;
+            return null!;
         }
     }
 }
